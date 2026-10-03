@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Football Info - أخبار ومباريات كرة القدم</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚽%3C/text%3E%3C/svg%3E">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0e7a43">
+<meta name="description" content="موقع شامل لأخبار كرة القدم والمباريات والبطولات والأندية واللاعبين والإحصائيات وترتيب الدوريات.">
+<meta name="keywords" content="كرة القدم, مباريات اليوم, ترتيب الدوري, أخبار الأندية, لاعبين, انتقالات">
+<meta property="og:title" content="Football Info - أخبار ومباريات كرة القدم">
+<meta property="og:description" content="أخبار، مباريات، ترتيب، أندية ولاعبون في مكان واحد.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Football Info","inLanguage":"ar"}</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f5f3;--card:#fff;--ink:#12201a;--mute:#5d6b64;--line:#dde5e0;--acc:#0e7a43;--live:#e5383b;--hero:#0b2a1d}
+:root[data-theme=dark]{--bg:#0c1411;--card:#142019;--ink:#e8f0eb;--mute:#93a39a;--line:#233229;--acc:#38c172;--live:#ff6b6b;--hero:#071a12}
+*{box-sizing:border-box;margin:0}
+body{font-family:Cairo,Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.wrap{max-width:1180px;margin:auto;padding:0 16px}
+header{position:sticky;top:0;z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:8px;height:60px}
+.logo{font-weight:800;font-size:1.25rem;display:flex;gap:8px;align-items:center;margin-inline-end:12px}
+.logo i{color:var(--acc)}
+nav{display:flex;gap:2px;flex:1}
+nav a{padding:6px 12px;border-radius:8px;font-weight:600;color:var(--mute)}
+nav a.on,nav a:hover{color:var(--acc);background:color-mix(in srgb,var(--acc) 10%,transparent)}
+.ib{border:0;background:none;color:var(--ink);font-size:1.1rem;width:38px;height:38px;border-radius:8px;cursor:pointer}
+.ib:hover{background:var(--line)}
+#mb{display:none}
+@media(max-width:820px){#mb{display:block}.logo{margin-inline-end:auto}nav{display:none;position:absolute;top:60px;inset-inline:0;background:var(--card);flex-direction:column;padding:8px 16px;border-bottom:1px solid var(--line)}nav.open{display:flex}}
+main{padding:20px 0 40px;min-height:70vh}
+h1.pt{font-size:1.6rem;margin:8px 0 16px}
+h2.st{font-size:1.2rem;margin:28px 0 12px;display:flex;justify-content:space-between;align-items:center}
+h2 a{font-size:.85rem;color:var(--acc);font-weight:600}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;transition:transform .15s,box-shadow .15s;display:block}
+a.card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.row{display:flex;align-items:center;gap:12px}
+.badge{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:.85rem;flex:none}
+.badge.s{width:30px;height:30px;font-size:.65rem}
+.mute{color:var(--mute);font-size:.88rem}
+.tag{display:inline-block;background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc);border-radius:20px;padding:0 10px;font-size:.78rem;font-weight:600}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 16px;border-radius:20px;cursor:pointer;font:inherit;font-weight:600}
+.tabs button.on{background:var(--acc);color:var(--bg);border-color:var(--acc)}
+.btn{display:inline-block;background:var(--acc);color:var(--bg);padding:8px 18px;border-radius:10px;font-weight:700}
+.hero{position:relative;overflow:hidden;background:var(--hero) url(images/hero.svg) center/cover;color:#fff;border-radius:16px;padding:28px;display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center}
+.hero::after{content:"";position:absolute;width:280px;height:280px;border:2px solid rgba(255,255,255,.08);border-radius:50%;left:-70px;top:50%;margin-top:-140px}
+.hero>*{position:relative;z-index:1}
+.hero h1{font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.4;margin:10px 0}
+.hero .tag{background:rgba(255,255,255,.15);color:#fff}
+.hero .btn{background:#fff;color:#0b2a1d;margin-top:12px}
+.board{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:18px;text-align:center;direction:ltr}
+.board .mute{color:#b8c7be}
+.board .n{font-size:3.2rem;font-weight:800;letter-spacing:3px;line-height:1.2}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding:20px}}
+.lg{font-weight:700;margin:18px 0 8px}
+.m{display:grid;grid-template-columns:1fr 34px 84px 34px 1fr;align-items:center;gap:8px;padding:10px 12px;background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:8px;direction:ltr}
+.tn{font-weight:600;font-size:.92rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tn.r{text-align:right}
+.sc{text-align:center;font-weight:800;font-size:1.2rem;line-height:1.3}
+.sc small{display:block;font-size:.7rem;font-weight:600;color:var(--mute)}
+.live,.sc.live small{color:var(--live)}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;min-width:600px}
+th,td{padding:10px 12px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--mute);font-size:.82rem;font-weight:600}
+tr:last-child td{border:0}
+td.tm{text-align:start}
+td.pts{font-weight:800;color:var(--acc)}
+.ph{height:120px;border-radius:8px;display:grid;place-items:center;font-size:2.4rem;background:color-mix(in srgb,var(--acc) 12%,var(--bg));margin-bottom:10px}
+.nc h3{font-size:1rem;line-height:1.5;margin:6px 0 2px}
+.info{display:grid;gap:6px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.stat{text-align:center;color:var(--mute);font-size:.88rem}
+.stat b{display:block;font-size:1.7rem;color:var(--acc)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.art{max-width:760px;margin:auto}
+.art h1{font-size:1.6rem;line-height:1.5;margin:8px 0}
+.art p{margin-top:12px}
+.ph.big{height:200px;font-size:4rem}
+.ad{border:1px dashed var(--line);color:var(--mute);text-align:center;padding:18px;border-radius:12px;margin:24px 0;font-size:.82rem}
+#sp{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:50;padding:70px 16px}
+#sp.open{display:block}
+.sb{max-width:640px;margin:auto;background:var(--card);border-radius:14px;padding:14px;max-height:80vh;overflow:auto}
+.sb input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg);color:var(--ink);margin-bottom:8px}
+.res a{display:flex;gap:10px;align-items:center;padding:10px;border-radius:8px}
+.res a:hover{background:var(--bg)}
+footer{background:var(--card);border-top:1px solid var(--line);padding:32px 0 16px;color:var(--mute);font-size:.9rem}
+.fg{display:grid;gap:24px;grid-template-columns:1.4fr 1fr 1fr}
+.fg div>a:not(.logo){display:block;padding:2px 0}
+.fg a:not(.logo):hover{color:var(--acc)}
+.fg b{display:block;color:var(--ink);margin-bottom:6px}
+.copy{margin-top:24px;padding-top:14px;border-top:1px solid var(--line);text-align:center;font-size:.82rem}
+@media(max-width:700px){.fg{grid-template-columns:1fr}}
+#ck{position:fixed;bottom:12px;inset-inline:12px;max-width:620px;margin-inline:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.25);padding:12px 16px;display:none;align-items:center;gap:14px;z-index:40;font-size:.88rem}
+#ck.show{display:flex}
+#ck a{color:var(--acc);font-weight:600}
+#ck .btn{border:0;cursor:pointer;font:inherit;font-weight:700;flex:none}
+.doc{max-width:760px;margin:auto}
+.doc h2{font-size:1.15rem;margin:22px 0 4px}
+.doc p,.doc li{color:var(--ink);margin-top:6px}
+.doc ul{padding-inline-start:22px}
+.fm{display:grid;gap:10px;margin-top:14px}
+.fm input,.fm textarea{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg);color:var(--ink)}
+.fm .btn{border:0;cursor:pointer;font:inherit;font-weight:700;justify-self:start}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.badge{position:relative;overflow:hidden}
+.badge img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:14%}
+.badge img[src*=players]{object-fit:cover;padding:0}
+.ph{position:relative;overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ni{position:relative}
+.ni>a i{font-size:.65rem;margin-inline-start:4px}
+.dd{display:none;position:absolute;top:100%;inset-inline-start:0;min-width:210px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px;box-shadow:0 10px 28px rgba(0,0,0,.18);z-index:30}
+.dd a{display:block;padding:7px 12px;border-radius:8px;font-weight:600;font-size:.9rem;color:var(--ink)}
+.ni:hover .dd,.ni:focus-within .dd{display:block}
+@media(max-width:820px){nav{max-height:75vh;overflow:auto}.dd{display:block;position:static;border:0;box-shadow:none;padding:0 12px 6px}.dd a{color:var(--mute);padding:4px 8px}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+<a class="logo" href="#/"><i class="fas fa-futbol"></i>Football Info</a>
+<nav id="nv" aria-label="القائمة الرئيسية"></nav>
+<button class="ib" aria-label="بحث" onclick="openS()"><i class="fas fa-search"></i></button>
+<button class="ib" id="tb" aria-label="تبديل الوضع الليلي" onclick="setTh(document.documentElement.dataset.theme=='dark'?'light':'dark')"><i class="fas fa-moon"></i></button>
+<button class="ib" id="mb" aria-label="القائمة" onclick="document.querySelector('#nv').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+</div></header>
+<!-- مكان إعلان AdSense أسفل الهيدر -->
+<main class="wrap" id="app"></main>
+<footer><div class="wrap fg">
+<div><a class="logo" href="#/"><i class="fas fa-futbol"></i>Football Info</a><p class="mute">منصة عربية لأخبار كرة القدم ونتائج المباريات وترتيب الدوريات.</p></div>
+<div><b>أقسام الموقع</b><a href="#/news">الأخبار</a><a href="#/matches">المباريات</a><a href="#/standings">الترتيب</a><a href="#/clubs">الأندية</a></div>
+<div><b>عن الموقع</b><a href="#/about">من نحن</a><a href="#/contact">اتصل بنا</a><a href="#/privacy">سياسة الخصوصية</a><a href="#/terms">شروط الاستخدام</a></div>
+</div><div class="wrap copy">© <span id="yr"></span> Football Info. جميع الحقوق محفوظة. أسماء الأندية واللاعبين ملك لأصحابها.</div></footer>
+<div id="ck" role="dialog" aria-label="ملفات تعريف الارتباط"><span>نستخدم ملفات تعريف الارتباط لتحسين تجربتك وعرض إعلانات مناسبة. <a href="#/privacy">اقرأ السياسة</a></span><button class="btn" onclick="ckOk()">موافق</button></div>
+<div id="sp" onclick="if(event.target==this)closeS()"><div class="sb"><input id="q" type="search" placeholder="ابحث عن لاعب أو فريق أو بطولة" oninput="srch(this.value)" aria-label="بحث"><div id="sr"></div></div></div>
+
+<script>
+const o=(k,rows)=>rows.map(r=>Object.fromEntries(k.map((x,i)=>[x,r[i]])));
+const L={pl:['الدوري الإنجليزي','🇬🇧'],ll:['الدوري الإسباني','🇪🇸'],sa:['الدوري الإيطالي','🇮🇹'],bl:['الدوري الألماني','🇩🇪'],l1:['الدوري الفرنسي','🇫🇷'],ucl:['دوري أبطال أوروبا','🇪🇺'],wc:['كأس العالم','🌍']};
+const C=o(['id','name','country','lg','city','stad','year','col'],[
+['ars','Arsenal','إنجلترا','pl','لندن','Emirates Stadium',1886,'#d62828'],
+['liv','Liverpool','إنجلترا','pl','ليفربول','Anfield',1892,'#b5121b'],
+['che','Chelsea','إنجلترا','pl','لندن','Stamford Bridge',1905,'#1d4ed8'],
+['mci','Manchester City','إنجلترا','pl','مانشستر','Etihad Stadium',1880,'#3b8fc9'],
+['mun','Manchester United','إنجلترا','pl','مانشستر','Old Trafford',1878,'#c1121f'],
+['rma','Real Madrid','إسبانيا','ll','مدريد','Santiago Bernabéu',1902,'#6f7fa0'],
+['bar','Barcelona','إسبانيا','ll','برشلونة','Camp Nou',1899,'#8b1e5c'],
+['atm','Atletico Madrid','إسبانيا','ll','مدريد','Metropolitano',1903,'#c8102e'],
+['juv','Juventus','إيطاليا','sa','تورينو','Allianz Stadium',1897,'#444'],
+['int','Inter Milan','إيطاليا','sa','ميلانو','San Siro',1908,'#0b3c8a'],
+['acm','AC Milan','إيطاليا','sa','ميلانو','San Siro',1899,'#b3001b'],
+['nap','Napoli','إيطاليا','sa','نابولي','Stadio Maradona',1926,'#2a7fd4'],
+['bay','Bayern Munich','ألمانيا','bl','ميونخ','Allianz Arena',1900,'#d00027'],
+['bvb','Dortmund','ألمانيا','bl','دورتموند','Signal Iduna Park',1909,'#c9a000'],
+['psg','PSG','فرنسا','l1','باريس','Parc des Princes',1970,'#0a2a5e'],
+['om','Marseille','فرنسا','l1','مارسيليا','Vélodrome',1899,'#14a3d9'],
+['bre','Brentford','إنجلترا','pl','لندن','Gtech Community Stadium',1889,'#e30613'],
+['tot','Tottenham Hotspur','إنجلترا','pl','لندن','Tottenham Hotspur Stadium',1882,'#132257'],
+['avl','Aston Villa','إنجلترا','pl','برمنغهام','Villa Park',1874,'#7b003c'],
+['bri','Brighton & Hove Albion','إنجلترا','pl','برايتون','Amex Stadium',1901,'#0057b8'],
+['eve','Everton','إنجلترا','pl','ليفربول','Hill Dickinson Stadium',1878,'#003399'],
+['ips','Ipswich Town','إنجلترا','pl','إبسويتش','Portman Road',1878,'#1c4fa1'],
+['new','Newcastle United','إنجلترا','pl','نيوكاسل',"St James' Park",1892,'#444'],
+['hul','Hull City','إنجلترا','pl','هال','MKM Stadium',1904,'#e08a00'],
+['nfo','Nottingham Forest','إنجلترا','pl','نوتنغهام','City Ground',1865,'#c8102e'],
+['cov','Coventry City','إنجلترا','pl','كوفنتري','Coventry Building Society Arena',1883,'#59b6e8'],
+['bou','AFC Bournemouth','إنجلترا','pl','بورنموث','Vitality Stadium',1899,'#c8102e'],
+['lee','Leeds United','إنجلترا','pl','ليدز','Elland Road',1919,'#1d428a'],
+['cry','Crystal Palace','إنجلترا','pl','لندن','Selhurst Park',1905,'#1b458f'],
+['sun','Sunderland','إنجلترا','pl','سندرلاند','Stadium of Light',1879,'#d71920'],
+['ful','Fulham','إنجلترا','pl','لندن','Craven Cottage',1879,'#555']]);
+// الترتيب (الدوري الإنجليزي): [النادي، فاز، تعادل، خسر]
+const S={pl:[['mci',5,0,0],['ars',4,0,1],['bri',3,1,1],['bre',2,3,0],['lee',2,3,0],['liv',2,3,0],['eve',2,3,0],['hul',2,2,1],['new',2,2,1],['che',2,1,2],['ips',2,0,3],['mun',1,2,2],['nfo',1,2,2],['sun',1,1,3],['cry',1,1,3],['avl',1,1,3],['bou',0,3,2],['cov',1,0,4],['ful',0,2,3],['tot',0,2,3]]};
+// المباريات: التاريخ بتوقيت UTC، والنتيجة null للمباراة القادمة
+const M=o(['d','lg','h','a','hs','ag'],[
+['2026-09-18T19:00Z','pl','bre','che',3,0],['2026-09-19T11:30Z','pl','tot','avl',2,3],['2026-09-19T14:00Z','pl','bri','ars',3,0],['2026-09-19T14:00Z','pl','eve','ips',1,0],['2026-09-19T14:00Z','pl','new','hul',2,1],['2026-09-19T16:30Z','pl','nfo','cov',0,1],
+['2026-09-20T13:00Z','pl','bou','liv',0,1],['2026-09-20T13:00Z','pl','lee','cry',0,0],['2026-09-20T13:00Z','pl','mci','sun',5,3],['2026-09-20T15:30Z','pl','ful','mun',1,1],
+['2026-10-10T11:30Z','pl','ars','lee',null,null],['2026-10-10T14:00Z','pl','avl','bre',null,null],['2026-10-10T14:00Z','pl','che','bou',null,null],['2026-10-10T14:00Z','pl','ips','ful',null,null],['2026-10-10T14:00Z','pl','sun','bri',null,null],['2026-10-10T16:30Z','pl','mun','tot',null,null],
+['2026-10-11T13:00Z','pl','cry','nfo',null,null],['2026-10-11T13:00Z','pl','hul','eve',null,null],['2026-10-11T15:30Z','pl','liv','mci',null,null],['2026-10-12T19:00Z','pl','cov','new',null,null]]);
+const P=o(['id','n','c','co','f','pos','b','g','a','y','mi','ap','cr'],[
+[1,'Kylian Mbappé','rma','فرنسا','🇫🇷','مهاجم','1998-12-20',12,4,1,1050,12,['Monaco','PSG','Real Madrid']],
+[2,'Erling Haaland','mci','النرويج','🇳🇴','مهاجم','2000-07-21',14,3,0,980,11,['Molde','Salzburg','Dortmund','Manchester City']],
+[3,'Mohamed Salah','liv','مصر','🇪🇬','جناح','1992-06-15',9,8,1,1020,12,['Basel','Chelsea','Roma','Liverpool']],
+[4,'Jude Bellingham','rma','إنجلترا','🇬🇧','وسط','2003-06-29',6,5,2,990,12,['Birmingham','Dortmund','Real Madrid']],
+[5,'Lamine Yamal','bar','إسبانيا','🇪🇸','جناح','2007-07-13',7,9,1,940,12,['Barcelona']],
+[6,'Harry Kane','bay','إنجلترا','🇬🇧','مهاجم','1993-07-28',13,5,0,1000,11,['Tottenham','Bayern Munich']],
+[7,'Bukayo Saka','ars','إنجلترا','🇬🇧','جناح','2001-09-05',7,7,1,960,11,['Arsenal']],
+[8,'Ousmane Dembélé','psg','فرنسا','🇫🇷','جناح','1997-05-12',8,6,2,900,11,['Rennes','Dortmund','Barcelona','PSG']],
+[9,'Lautaro Martínez','int','الأرجنتين','🇦🇷','مهاجم','1997-08-22',10,3,2,930,11,['Racing','Inter Milan']],
+[10,'Vinícius Júnior','rma','البرازيل','🇧🇷','جناح','2000-07-12',8,6,3,950,12,['Flamengo','Real Madrid']]]);
+// بقية الدوريات: بيانات حقيقية لموسم 2026/27 حتى 3 أكتوبر 2026
+const NEW=[['ll','إسبانيا',[['rbb','Real Betis'],['sev','Sevilla'],['ala','Alavés'],['dep','Deportivo La Coruña'],['rso','Real Sociedad'],['vil','Villarreal'],['ath','Athletic Bilbao'],['get','Getafe'],['rvc','Rayo Vallecano'],['osa','Osasuna'],['rcc','Celta Vigo'],['esp','Espanyol'],['rac','Racing Santander'],['lvt','Levante'],['elc','Elche'],['vcf','Valencia'],['mcf','Málaga']]],
+['sa','إيطاليا',[['rom','AS Roma'],['laz','Lazio'],['cag','Cagliari'],['fro','Frosinone'],['com','Como'],['sas','Sassuolo'],['ata','Atalanta'],['lec','Lecce'],['udi','Udinese'],['tor','Torino'],['par','Parma'],['mon','Monza'],['fio','Fiorentina'],['bfc','Bologna'],['gen','Genoa'],['ven','Venezia']]],
+['bl','ألمانيا',[['scf','SC Freiburg'],['fca','FC Augsburg'],['b04','Bayer Leverkusen'],['m05','Mainz 05'],['sve','Elversberg'],['svw','Werder Bremen'],['rbl','RB Leipzig'],['sge','Eintracht Frankfurt'],['sch','Schalke 04'],['pad','Paderborn'],['koe','1. FC Köln'],['tsg','Hoffenheim'],['vfb','VfB Stuttgart'],['hsv','Hamburger SV'],['uni','Union Berlin'],['bmg','Borussia Mönchengladbach']]],
+['l1','فرنسا',[['asm','AS Monaco'],['ol','Lyon'],['pfc','Paris FC'],['lil','Lille'],['ren','Rennes'],['ang','Angers'],['rcs','Strasbourg'],['man','Le Mans'],['aux','Auxerre'],['stb','Brest'],['fcl','Lorient'],['tfc','Toulouse'],['nic','Nice'],['rcl','Lens'],['est','Troyes'],['hac','Le Havre']]]];
+NEW.forEach(([lg,co,a])=>a.forEach(([id,name])=>C.push({id,name,country:co,lg})));
+C.forEach(c=>{c.col=c.col||`hsl(${[...c.name].reduce((a,x)=>(a*31+x.charCodeAt(0))%360,7)} 45% 38%)`});
+Object.assign(S,{
+ll:[['bar',7,0,0],['atm',5,1,1],['rbb',5,1,1],['rma',5,0,2],['sev',4,1,2],['ala',3,2,2],['dep',2,4,1],['rso',3,1,3],['vil',2,2,3],['ath',2,2,2],['get',2,2,3],['rvc',2,2,3],['osa',2,2,3],['rcc',1,4,2],['esp',2,1,4],['rac',2,1,4],['lvt',1,2,3],['elc',1,2,4],['vcf',1,1,5],['mcf',0,3,4]],
+sa:[['rom',4,1,0],['int',4,1,0],['laz',4,1,0],['cag',4,0,1],['acm',3,2,0],['fro',3,1,1],['juv',3,1,1],['com',3,1,1],['nap',2,1,2],['sas',2,1,2],['ata',2,0,3],['lec',2,0,3],['udi',1,1,3],['tor',1,1,3],['par',1,1,3],['mon',1,1,3],['fio',1,1,3],['bfc',0,2,3],['gen',0,1,4],['ven',0,0,5]],
+bl:[['bvb',4,0,0],['bay',3,1,0],['scf',3,1,0],['fca',2,1,1],['b04',2,1,1],['m05',2,1,1],['sve',2,1,1],['svw',2,1,1],['rbl',2,0,2],['sge',1,2,1],['sch',1,2,1],['pad',1,1,2],['koe',1,1,2],['tsg',1,0,3],['vfb',1,0,3],['hsv',1,0,3],['uni',0,1,3],['bmg',0,0,4]],
+l1:[['asm',4,1,0],['ol',3,2,0],['pfc',3,2,0],['lil',3,1,1],['ren',3,1,1],['psg',2,2,1],['ang',2,1,2],['rcs',2,1,2],['man',1,3,1],['aux',2,0,3],['stb',1,2,2],['fcl',1,2,2],['tfc',1,2,2],['nic',1,2,2],['rcl',1,1,3],['est',1,1,3],['om',1,0,4],['hac',0,2,3]]});
+const ML={
+ll:[['09-18T19:00','esp','elc',1,3],['09-19T12:00','osa','rvc',1,1],['09-19T14:15','ath','ala',0,0],['09-19T16:30','rcc','rac',5,0],['09-19T19:00','sev','bar',1,3],['09-20T12:00','get','mcf',1,0],['09-20T14:15','atm','rma',2,1],['09-20T16:30','dep','rbb',1,1],['09-20T16:30','vil','lvt',3,1],['09-20T19:00','vcf','rso',2,3],
+['10-09T19:00','mcf','esp'],['10-10T12:00','rvc','ath'],['10-10T14:15','ala','atm'],['10-10T16:30','bar','get'],['10-10T19:00','rma','vil'],['10-11T12:00','elc','rcc'],['10-11T14:15','rso','dep'],['10-11T16:30','rbb','osa'],['10-11T19:00','rac','vcf'],['10-12T19:00','lvt','sev']],
+sa:[['09-18T18:45','mon','sas',2,1],['09-19T13:00','bfc','tor',1,1],['09-19T13:00','udi','cag',0,1],['09-19T16:00','rom','int',2,2],['09-19T18:45','ven','laz',0,2],['09-20T10:30','fio','nap',1,1],['09-20T13:00','fro','com',2,0],['09-20T13:00','par','gen',2,1],['09-20T16:00','juv','ata',2,0],['09-20T18:45','acm','lec',3,0],
+['10-10T13:00','gen','fio'],['10-10T16:00','int','par'],['10-10T18:45','nap','fro'],['10-11T10:30','com','rom'],['10-11T13:00','laz','mon'],['10-11T13:00','lec','bfc'],['10-11T16:00','sas','acm'],['10-11T18:45','cag','juv'],['10-12T16:30','ata','ven'],['10-12T18:45','tor','udi']],
+bl:[['09-13T15:30','sve','bay',1,2],['09-18T18:30','bay','uni',7,0],['09-19T13:30','sge','scf',2,2],['09-19T13:30','bmg','m05',3,4],['09-19T13:30','hsv','koe',2,1],['09-19T13:30','svw','fca',3,2],['09-19T16:30','vfb','bvb',0,1],['09-20T13:30','b04','rbl',2,0],['09-20T15:30','sch','sve',0,0],['09-20T17:30','pad','tsg',3,1],
+['10-09T18:30','bvb','svw'],['10-10T13:30','tsg','hsv'],['10-10T13:30','fca','bay'],['10-10T13:30','m05','b04'],['10-10T13:30','uni','sve'],['10-10T13:30','pad','vfb'],['10-10T16:30','rbl','sge'],['10-11T13:30','koe','bmg'],['10-11T15:30','scf','sch'],['10-16T18:30','sge','koe']],
+l1:[['09-13T18:45','stb','psg',0,1],['09-18T18:45','asm','rcl',2,1],['09-19T15:15','pfc','rcs',2,1],['09-19T18:45','ang','est',2,0],['09-19T18:45','man','fcl',2,1],['09-19T18:45','ol','ren',4,0],['09-19T18:45','tfc','hac',3,2],['09-20T13:00','aux','stb',2,1],['09-20T15:15','nic','lil',2,1],['09-20T18:45','om','psg',1,2],
+['10-09T18:45','rcl','ol'],['10-10T15:15','lil','hac'],['10-10T18:45','stb','ang'],['10-10T18:45','fcl','pfc'],['10-10T18:45','asm','tfc'],['10-10T18:45','psg','man'],['10-11T13:00','nic','rcs'],['10-11T15:15','ren','aux'],['10-11T18:45','est','om'],['10-16T18:45','man','tfc']]};
+for(const k in ML)ML[k].forEach(([d,h,a,x,y])=>M.push({d:'2026-'+d+'Z',lg:k,h,a,hs:x,ag:y}));
+const NC={clubs:'أخبار الأندية',transfers:'انتقالات',ucl:'دوري أبطال أوروبا',leagues:'الدوريات',national:'المنتخب',players:'لاعبين'};
+const NF=[['all','الكل'],...Object.entries(NC)];
+const N=o(['id','c','t','d','b','date','e','r'],[
+[1,'clubs','قمة الأحد: ليفربول يستضيف مانشستر سيتي','يلتقي الفريقان في أنفيلد يوم 11 أكتوبر، وتمنح التوقعات أفضلية طفيفة للضيف.','تعطي نسب الاحتمالات مانشستر سيتي 37.8% وليفربول 36.5% والتعادل 25.7%.','2026-10-03','🔥',['liv','mci']],
+[2,'leagues','مانشستر سيتي يتغلب على سندرلاند 5-3','فوز مفتوح للمتصدر يمنحه العلامة الكاملة بعد خمس جولات.','رفع سيتي رصيده إلى 15 نقطة، وبقي سندرلاند في المركز الرابع عشر بأربع نقاط.','2026-09-20','🏆',['mci','sun']],
+[3,'leagues','برايتون يتفوق على أرسنال بثلاثية نظيفة','خسارة أرسنال خارج ملعبه تجعله ثانيًا خلف مانشستر سيتي.','يملك أرسنال 12 نقطة، ويحتل برايتون المركز الثالث برصيد 10 نقاط.','2026-09-19','⚽',['bri','ars']],
+[4,'clubs','برينتفورد يكتسح تشيلسي 3-0','بداية قوية لبرينتفورد في المركز الرابع، وتشيلسي عاشر.','يملك برينتفورد 9 نقاط مقابل 7 نقاط لتشيلسي.','2026-09-18','👕',['bre','che']],
+[5,'leagues','أستون فيلا يفوز على توتنهام 3-2','نتيجة تبقي توتنهام في المركز الأخير بنقطتين.','لم يحقق توتنهام أي فوز في أول خمس مباريات، بينما رفع فيلا رصيده إلى 4 نقاط.','2026-09-19','📉',['tot','avl']],
+[6,'clubs','ليفربول يفوز على بورنموث 1-0','فوز بهدف وحيد خارج الديار يرفع ليفربول إلى 9 نقاط.','يحتل ليفربول المركز السادس، فيما يملك بورنموث 3 نقاط في المركز السابع عشر.','2026-09-20','🔴',['liv','bou']]]);
+const $=s=>document.querySelector(s);
+const cl=id=>C.find(c=>c.id==id);
+const row=id=>{for(const k in S){const r=S[k].find(x=>x[0]==id);if(r)return r}};
+const ini=n=>n.includes(' ')?n.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase():n.slice(0,3).toUpperCase();
+const im=(d,id,e='png')=>`<img src="images/${d}/${id}.${e}" alt="" loading="lazy" onerror="this.remove()">`;
+const bd=(c,s)=>`<span class="badge${s?' s':''}" style="background:${c.col}">${ini(c.name)}${im('clubs',c.id)}</span>`;
+let md='fix',nf='all';
+const dayName=d=>{const t=new Date();t.setDate(t.getDate()+d);return t.toLocaleDateString('ar',{weekday:'long',day:'numeric',month:'long'})};
+const tabs=(it,cur,fn)=>`<div class="tabs">${it.map(([k,l])=>`<button class="${k==cur?'on':''}" onclick="${fn}('${k}')">${l}</button>`).join('')}</div>`;
+const setDay=k=>{location.hash='#/matches/'+k},setNF=k=>{location.hash='#/news/cat:'+k},goP=k=>{location.hash='#/players'+(k?'/'+encodeURIComponent(k):'')},goC=k=>{location.hash='#/clubs'+(k?'/'+k:'')},go=k=>{location.hash='#/standings/'+k};
+const MAIL='contact@football-info.com'; // غيّره إلى بريدك الحقيقي
+const ad='<div class="ad">مساحة إعلانية</div>';
+const stats=a=>`<div class="stats">${a.map(([l,v])=>`<div class="card stat"><b>${v}</b>${l}</div>`).join('')}</div>`;
+
+const ft=m=>m.hs!=null;
+const fd=d=>new Date(d).toLocaleString('ar',{weekday:'long',day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'});
+const mr=m=>{const h=cl(m.h),a=cl(m.a),f=ft(m),dt=new Date(m.d);
+return `<div class="m"><a class="tn r" href="#/club/${h.id}">${h.name}</a>${bd(h,1)}<div class="sc">${f?m.hs+' - '+m.ag:dt.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})}<small>${(f?'FT ':'')+dt.toLocaleDateString('ar',{day:'numeric',month:'short'})}</small></div>${bd(a,1)}<a class="tn" href="#/club/${a.id}">${a.name}</a></div>`};
+const ml=(f,asc=1,n=99)=>{const x=M.filter(f).sort((a,b)=>(a.d<b.d?-1:1)*(asc?1:-1)).slice(0,n);if(!x.length)return '<p class="mute">لا توجد مباريات.</p>';
+return [...new Set(x.map(m=>m.lg))].map(k=>`<div class="lg">${L[k][1]} ${L[k][0]}</div>`+x.filter(m=>m.lg==k).map(mr).join('')).join('')};
+const tbl=lg=>{const r=S[lg].map(([id,w,d,l])=>({c:cl(id),p:w+d+l,w,d,l,pt:3*w+d})).sort((a,b)=>b.pt-a.pt);
+return `<div class="tw"><table><tr><th>#</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>نقاط</th></tr>${r.map((x,i)=>`<tr><td>${i+1}</td><td class="tm"><a class="row" href="#/club/${x.c.id}">${bd(x.c,1)}${x.c.name}</a></td><td>${x.p}</td><td>${x.w}</td><td>${x.d}</td><td>${x.l}</td><td class="pts">${x.pt}</td></tr>`).join('')}</table></div>`};
+const nc=n=>`<a class="card nc" href="#/news/${n.id}"><div class="ph">${n.e}${im('news',n.id,'svg')}</div><span class="tag">${NC[n.c]}</span><h3>${n.t}</h3><p class="mute">${n.d}</p><p class="mute">${n.date}</p></a>`;
+const cc=c=>`<a class="card row" href="#/club/${c.id}">${bd(c)}<div><b>${c.name}</b><div class="mute">${c.country}</div><div class="mute">${L[c.lg][0]}</div></div></a>`;
+const pc=p=>`<a class="card row" href="#/player/${p.id}"><span class="badge" style="background:${cl(p.c).col}">${ini(p.n)}${im('players',p.id,'jpg')}</span><div><b>${p.n}</b><div class="mute">${p.f} ${p.co}</div><div class="mute">⚽ ${p.pos}</div><div class="mute">${cl(p.c).name}</div></div></a>`;
+const lc=()=>Object.keys(L).map(k=>`<a class="card row" href="#/league/${k}"><span style="font-size:1.8rem">${L[k][1]}</span><b>${L[k][0]}</b></a>`).join('');
+
+const V={
+home(){const f=M.find(m=>!ft(m)&&m.h=='liv'),h=cl(f.h),a=cl(f.a),n=N[0];
+return `<section class="hero"><div><span class="tag">قمة الجولة المقبلة</span><h1>${n.t}</h1><p>${n.d}</p><a class="btn" href="#/news/${n.id}">التفاصيل</a></div>
+<div class="board"><div class="mute">${L[f.lg][0]}</div><div class="n">VS</div><div>${h.name} / ${a.name}</div><div class="mute">${fd(f.d)}</div></div></section>
+<h2 class="st">آخر النتائج <a href="#/matches">كل المباريات</a></h2>${ml(ft,0,5)}${ad}
+<h2 class="st">المباريات القادمة</h2>${ml(m=>!ft(m),1,5)}
+<h2 class="st">آخر الأخبار <a href="#/news">كل الأخبار</a></h2><div class="grid">${N.slice(0,3).map(nc).join('')}</div>
+<h2 class="st">البطولات</h2><div class="grid">${lc()}</div>`},
+matches(a){md=a||'fix';return `<h1 class="pt">المباريات</h1>${tabs([['fix','المباريات القادمة'],['res','النتائج']],md,'setDay')}${md=='res'?ml(ft,0):ml(m=>!ft(m),1)}<p class="mute">الأوقات حسب توقيت جهازك.</p>${ad}`},
+leagues(){return `<h1 class="pt">البطولات</h1><div class="grid">${lc()}</div>`},
+league(k){const l=L[k];if(!l)return V.nf();
+const cs=C.filter(c=>c.lg==k),ms=M.filter(m=>m.lg==k),ps=P.filter(p=>cs.some(c=>c.id==p.c)).sort((a,b)=>b.g-a.g);
+return `<h1 class="pt">${l[1]} ${l[0]}</h1><div class="card" style="margin-bottom:8px">${LI[k]}</div>`
++(cs.length?`<h2 class="st">الفرق</h2><div class="grid">${cs.map(cc).join('')}</div>`:'')
++(ms.length?`<h2 class="st">المباريات</h2>${ms.map(mr).join('')}`:'')
++(S[k]?`<h2 class="st">الترتيب <a href="#/standings/${k}">الصفحة الكاملة</a></h2>${tbl(k)}`:'')
++(ps.length?`<h2 class="st">اللاعبون</h2><div class="grid">${ps.map(pc).join('')}</div>`:'')
++(cs.length||ms.length?'':'<div class="card" style="margin-top:14px">لا تتوفر حاليًا مباريات أو ترتيب لهذه البطولة في الموقع. تصفّح <a href="#/matches" style="color:var(--acc);font-weight:700">المباريات</a> أو <a href="#/clubs" style="color:var(--acc);font-weight:700">الأندية</a>.</div>')},
+standings(k='pl'){return `<h1 class="pt">ترتيب الدوري</h1>${tabs(Object.keys(S).map(x=>[x,L[x][0]]),k,'go')}${S[k]?tbl(k):'<p class="mute">لا يوجد ترتيب لهذه البطولة.</p>'}<p class="mute">بيانات موسم 2026/27 للدوريات الخمسة الكبرى، آخر تحديث 3 أكتوبر 2026.</p>${ad}`},
+clubs(a){const x=a?C.filter(c=>c.lg==a):C;return `<h1 class="pt">الأندية${L[a]?': '+L[a][0]:''}</h1>${tabs([['','الكل'],...CL.map(k=>[k,L[k][0]])],a||'','goC')}<div class="grid">${x.map(cc).join('')||'<p class="mute">لا توجد أندية.</p>'}</div>`},
+club(id){const c=cl(id);if(!c)return V.nf();const r=row(id)||[],ms=M.filter(m=>m.h==id||m.a==id),ps=P.filter(p=>p.c==id),ns=N.filter(n=>n.r.includes(id)),pa=ms.filter(ft),nx=ms.filter(m=>!ft(m));
+return `<div class="card row" style="gap:18px">${bd(c)}<div><h1 class="pt" style="margin:0">${c.name}</h1><div class="mute">${c.country}${c.city?'، '+c.city:''}</div></div></div>
+<h2 class="st">معلومات النادي</h2><div class="card info">${c.stad?`<div>الملعب: <b>${c.stad}</b></div>`:''}${c.year?`<div>سنة التأسيس: <b>${c.year}</b></div>`:''}<div>البطولة: <b>${L[c.lg][0]}</b></div></div>
+${pa.length?`<h2 class="st">آخر المباريات</h2>${pa.map(mr).join('')}`:''}${nx.length?`<h2 class="st">المباريات القادمة</h2>${nx.map(mr).join('')}`:''}
+${ps.length?`<h2 class="st">الفريق</h2><div class="grid">${ps.map(pc).join('')}</div>`:''}
+<h2 class="st">الإحصائيات</h2>${r.length?stats([['المباريات',r[1]+r[2]+r[3]],['الانتصارات',r[1]],['التعادلات',r[2]],['الهزائم',r[3]],['النقاط',3*r[1]+r[2]]]):'<p class="mute">لا تتوفر إحصائيات لهذا النادي بعد.</p>'}
+${ns.length?`<h2 class="st">الأخبار</h2><div class="grid">${ns.map(nc).join('')}</div>`:''}`},
+players(a){const x=a?P.filter(p=>p.pos==a):P;return `<h1 class="pt">اللاعبون${a?': '+(PL2[a]||a):''}</h1>${tabs([['','الكل'],...POS.map(q=>[q,PL2[q]||q])],a||'','goP')}<div class="grid">${x.map(pc).join('')||'<p class="mute">لا يوجد لاعبون.</p>'}</div>`},
+player(id){const p=P.find(x=>x.id==id);if(!p)return V.nf();const c=cl(p.c);
+return `<div class="card row" style="gap:18px"><span class="badge" style="background:${c.col};width:64px;height:64px;font-size:1.2rem">${ini(p.n)}${im('players',p.id,'jpg')}</span><div><h1 class="pt" style="margin:0">${p.n}</h1><div class="mute">${p.f} ${p.co}</div></div></div>
+<h2 class="st">المعلومات</h2><div class="card info"><div>الجنسية: <b>${p.co}</b></div><div>تاريخ الميلاد: <b>${p.b}</b></div><div>المركز: <b>${p.pos}</b></div><div>النادي: <a href="#/club/${c.id}"><b>${c.name}</b></a></div></div>
+<h2 class="st">مسيرة اللاعب</h2><div class="chips">${p.cr.map(x=>`<span class="tag">${x}</span>`).join('')}</div>`},
+news(a){nf=a?a.slice(4):'all';const x=N.filter(n=>nf=='all'||n.c==nf);return `<h1 class="pt">الأخبار</h1>${tabs([['all','الكل'],...Object.entries(NC).filter(([k])=>N.some(n=>n.c==k))],nf,'setNF')}<div class="grid">${x.map(nc).join('')||'<p class="mute">لا توجد أخبار في هذا التصنيف.</p>'}</div>${ad}`},
+newsItem(id){const n=N.find(x=>x.id==id);if(!n)return V.nf();
+return `<article class="card art"><div class="ph big">${n.e}${im('news',n.id,'svg')}</div><span class="tag">${NC[n.c]}</span><h1>${n.t}</h1><div class="mute">${n.date}</div><p>${n.d}</p><p>${n.b}</p>${n.r.filter(r=>cl(r)).length?`<p class="chips">${n.r.filter(r=>cl(r)).map(r=>`<a class="tag" href="#/club/${r}">${cl(r).name}</a>`).join('')}</p>`:''}</article>${ad}`},
+about(){return `<div class="card doc"><h1 class="pt">من نحن</h1>
+<p>Football Info منصة عربية مستقلة تجمع أخبار كرة القدم ونتائج المباريات وترتيب الدوريات وبيانات الأندية واللاعبين في مكان واحد وبتصميم سريع يناسب الهاتف.</p>
+<h2>رسالتنا</h2><p>أن نقدّم للمشجع العربي معلومات واضحة ومنظمة وسهلة الوصول، دون ازدحام أو إعلانات مزعجة.</p>
+<h2>مصادر المحتوى</h2><p>نحرص على نشر معلومات دقيقة ونحدّثها باستمرار. إذا لاحظت خطأً فراسلنا من صفحة <a href="#/contact" style="color:var(--acc)">اتصل بنا</a> وسنصحّحه.</p>
+<h2>إخلاء مسؤولية</h2><p>الموقع غير تابع لأي نادٍ أو اتحاد أو دوري. الأسماء والشعارات تعود لأصحابها وتُعرض لأغراض إعلامية فقط.</p></div>`},
+contact(){return `<div class="card doc"><h1 class="pt">اتصل بنا</h1>
+<p>للاقتراحات أو تصحيح المعلومات أو الإعلانات والشراكات، أرسل لنا رسالة وسنردّ في أقرب وقت على <b>${MAIL}</b>.</p>
+<div class="fm"><input id="cn" placeholder="الاسم" aria-label="الاسم"><input id="ce" type="email" placeholder="بريدك الإلكتروني" aria-label="البريد الإلكتروني"><textarea id="cm" rows="5" placeholder="رسالتك" aria-label="الرسالة"></textarea><button class="btn" onclick="sendMail()">إرسال الرسالة</button></div></div>`},
+privacy(){return `<div class="card doc"><h1 class="pt">سياسة الخصوصية</h1><p class="mute">آخر تحديث: 3 أكتوبر 2026</p>
+<p>خصوصيتك تهمنا. توضّح هذه الصفحة ما نجمعه وكيف نستخدمه.</p>
+<h2>البيانات التي نحفظها</h2><p>لا نطلب منك إنشاء حساب ولا نجمع بيانات شخصية. نحفظ في متصفحك فقط تفضيلاتك، مثل الوضع الليلي وموافقتك على ملفات تعريف الارتباط.</p>
+<h2>ملفات تعريف الارتباط والإعلانات</h2><p>قد يعرض الموقع إعلانات من أطراف ثالثة مثل Google AdSense. تستخدم هذه الأطراف ملفات تعريف الارتباط لعرض إعلانات مناسبة لاهتماماتك وقياس أدائها. يمكنك إدارة إعلانات Google المخصصة من إعدادات حسابك في Google أو تعطيل ملفات الارتباط من متصفحك.</p>
+<h2>الروابط الخارجية</h2><p>قد يحتوي الموقع على روابط لمواقع أخرى، ولسنا مسؤولين عن سياساتها.</p>
+<h2>التواصل</h2><p>لأي استفسار بشأن الخصوصية راسلنا على ${MAIL}.</p></div>`},
+terms(){return `<div class="card doc"><h1 class="pt">شروط الاستخدام</h1><p class="mute">آخر تحديث: 3 أكتوبر 2026</p>
+<p>باستخدامك الموقع فإنك توافق على الشروط التالية:</p>
+<ul><li>المحتوى للاستخدام الشخصي وغير التجاري، ولا يجوز نسخه أو إعادة نشره دون إذن.</li><li>نبذل جهدنا لتقديم معلومات دقيقة، لكننا لا نضمن خلوها من الأخطاء أو تحديثها اللحظي.</li><li>الأسماء والشعارات والصور المعروضة ملك لأصحابها.</li><li>نحتفظ بحق تعديل الموقع أو هذه الشروط في أي وقت.</li></ul></div>`},
+nf(){return '<h1 class="pt">الصفحة غير موجودة</h1><a class="btn" href="#/">العودة إلى الرئيسية</a>'}
+};
+const LI={pl:'تأسس الدوري الإنجليزي الممتاز عام 1992 ويضم 20 فريقًا يلعبون بنظام الذهاب والإياب.',
+ll:'تأسس الدوري الإسباني (لاليغا) عام 1929 ويضم 20 فريقًا.',
+sa:'يُلعب الدوري الإيطالي (سيري آ) بصيغة الجدول الواحد منذ موسم 1929/30 ويضم 20 فريقًا.',
+bl:'تأسس الدوري الألماني (البوندسليغا) عام 1963 ويضم 18 فريقًا.',
+l1:'يضم الدوري الفرنسي (ليغ 1) 18 فريقًا منذ موسم 2023/24.',
+ucl:'بدأت البطولة باسم كأس أوروبا للأندية الأبطال عام 1955، وتحمل اسمها الحالي منذ 1992. ريال مدريد هو أكثر الأندية تتويجًا بها.',
+wc:'تُقام كأس العالم كل أربع سنوات منذ 1930. أقيمت نسخة 2026 في الولايات المتحدة وكندا والمكسيك بمشاركة 48 منتخبًا. استضافت أوروغواي النسخة الأولى عام 1930 وفازت بها.'};
+const PL2={'مهاجم':'المهاجمون','جناح':'الأجنحة','وسط':'لاعبو الوسط'},POS=[...new Set(P.map(p=>p.pos))],CL=['pl','ll','sa','bl','l1'];
+const NAV=[['home','الرئيسية','#/',[]],
+['news','الأخبار','#/news',[['كل الأخبار','#/news'],...Object.entries(NC).filter(([k])=>N.some(n=>n.c==k)).map(([k,l])=>[l,'#/news/cat:'+k])]],
+['matches','المباريات','#/matches',[['المباريات القادمة','#/matches/fix'],['آخر النتائج','#/matches/res']]],
+['leagues','البطولات','#/leagues',Object.keys(L).map(k=>[L[k][1]+' '+L[k][0],'#/league/'+k])],
+['standings','الترتيب','#/standings',[['الدوري الإنجليزي','#/standings/pl']]],
+['clubs','الأندية','#/clubs',[['كل الأندية','#/clubs'],...CL.map(k=>[L[k][0],'#/clubs/'+k])]],
+['players','اللاعبون','#/players',[['كل اللاعبين','#/players'],...POS.map(q=>[PL2[q]||q,'#/players/'+encodeURIComponent(q)])]]];
+$('#nv').innerHTML=NAV.map(([k,l,h,m])=>`<div class="ni"><a href="${h}" data-k="${k}">${l}${m.length?'<i class="fas fa-chevron-down"></i>':''}</a>${m.length?`<div class="dd">${m.map(([t,u])=>`<a href="${u}">${t}</a>`).join('')}</div>`:''}</div>`).join('');
+const KM={league:'leagues',club:'clubs',player:'players',newsItem:'news'};
+function route(s){
+ const [p='',a='']=location.hash.slice(2).split('/').map(x=>{try{return decodeURIComponent(x)}catch(e){return x}});
+ let k=p||'home';if(k=='news'&&a&&!a.startsWith('cat:'))k='newsItem';
+ try{$('#app').innerHTML=Object.prototype.hasOwnProperty.call(V,k)?V[k](a||undefined):V.nf()}catch(e){console.error(e);$('#app').innerHTML='<h1 class="pt">حدث خطأ أثناء عرض الصفحة</h1><p class="mute">'+e.message+'</p><a class="btn" href="#/">العودة إلى الرئيسية</a>'}
+ document.querySelectorAll('#nv a').forEach(x=>x.classList.toggle('on',x.dataset.k==(KM[k]||k)));
+ $('#nv').classList.remove('open');
+ const h=$('#app h1');document.title=(p&&h?h.textContent+' | ':'')+'Football Info - أخبار ومباريات كرة القدم';
+ if(s)scrollTo(0,0);
+}
+addEventListener('hashchange',()=>route(1));
+
+// الوضع الليلي
+function setTh(t){document.documentElement.dataset.theme=t;try{localStorage.setItem('th',t)}catch(e){}$('#tb i').className=t=='dark'?'fas fa-sun':'fas fa-moon'}
+let saved=null;try{saved=localStorage.getItem('th')}catch(e){}
+setTh(saved||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+
+// البحث الشامل
+const nm=s=>String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
+function srch(q){q=nm(q);const sr=$('#sr');
+ if(!q){sr.innerHTML='<p class="mute">اكتب اسم لاعب أو فريق أو بطولة.</p>';return}
+ const ps=P.filter(p=>nm(p.n).includes(q)),lg=Object.keys(L).filter(k=>nm(L[k][0]).includes(q)),
+ cs=C.filter(c=>nm(c.name).includes(q)||ps.some(p=>p.c==c.id)),
+ ids=[...cs.map(c=>c.id),...ps.map(p=>'p'+p.id)],
+ ns=N.filter(n=>nm(n.t+n.d).includes(q)||n.r.some(r=>ids.includes(r)));
+ const it=(h,ic,t,s)=>`<a href="${h}" onclick="closeS()">${ic}<span><b>${t}</b><div class="mute">${s}</div></span></a>`;
+ const out=[...ps.map(p=>it('#/player/'+p.id,'👤',p.n,cl(p.c).name)),...cs.map(c=>it('#/club/'+c.id,'🏟️',c.name,L[c.lg][0])),...lg.map(k=>it('#/league/'+k,'🏆',L[k][0],'')),...ns.map(n=>it('#/news/'+n.id,'📰',n.t,n.date))];
+ sr.innerHTML=out.length?`<div class="res">${out.join('')}</div>`:'<p class="mute">لا توجد نتائج مطابقة.</p>';
+}
+function openS(){$('#sp').classList.add('open');$('#q').value='';srch('');$('#q').focus()}
+function closeS(){$('#sp').classList.remove('open')}
+addEventListener('keydown',e=>{if(e.key=='Escape')closeS()});
+function sendMail(){const g=i=>$(i).value.trim();
+ if(!g('#cm')){$('#cm').focus();return}
+ location.href=`mailto:${MAIL}?subject=${encodeURIComponent('رسالة من '+(g('#cn')||'زائر'))}&body=${encodeURIComponent(g('#cm')+'\n\n'+g('#ce'))}`}
+// موافقة ملفات الارتباط
+function ckOk(){try{localStorage.setItem('ck','1')}catch(e){}$('#ck').classList.remove('show')}
+let ckd=null;try{ckd=localStorage.getItem('ck')}catch(e){}
+if(!ckd)$('#ck').classList.add('show');
+$('#yr').textContent=new Date().getFullYear();
+route();
+</script>
+</body>
+</html>
